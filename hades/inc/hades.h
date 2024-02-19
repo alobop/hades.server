@@ -13,10 +13,6 @@
 
 // ---------------- Typedefs ---------------- //
 
-typedef struct hades_cmd_req_rpc_t hades_cmd_req_rpc_t;
-typedef struct hades_cmd_resp_rpc_t hades_cmd_resp_rpc_t;
-typedef struct hades_rpc_t hades_rpc_t;
-
 typedef enum 
 {
     HADES_SUCCESS,
@@ -27,6 +23,8 @@ typedef enum
     HADES_E_UNEXPECTED = -5,
     HADES_E_FAIL = -6
 } hades_status_t;
+
+typedef struct hades_rpc_t hades_rpc_t;
 
 typedef void (*hades_rpc_handler_t)(hades_rpc_t*, void*);
 

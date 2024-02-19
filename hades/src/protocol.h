@@ -35,7 +35,6 @@ typedef struct hades_protocol_request_t
     uint16_t request : 1;
     uint16_t id: 15;
     uint16_t command;
-    uint8_t payload[0];
 } hades_protocol_request_t;
 
 typedef struct hades_protocol_response_t
@@ -43,7 +42,6 @@ typedef struct hades_protocol_response_t
     uint16_t request : 1;
     uint16_t id: 15;
     uint16_t status;
-    uint8_t payload[0];
 } hades_protocol_response_t;
 
 typedef struct hades_cmd_req_get_version_t

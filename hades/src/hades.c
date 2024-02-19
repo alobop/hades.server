@@ -6,10 +6,8 @@
 
 #include "hades.h"
 
-#include "request.h"
-#include "commands.h"
-
 #include "protocol.h"
+#include "request.h"
 
 #include <pb_decode.h>
 #include <pb_encode.h>

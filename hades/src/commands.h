@@ -6,10 +6,8 @@
 
 // ---------------- Includes ---------------- //
 
+#include "hades.h"
 #include "request.h"
-
-#include <stddef.h>
-#include <stdint.h>
 
 // ----------------- Defines ---------------- //
 

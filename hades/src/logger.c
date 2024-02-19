@@ -26,14 +26,7 @@ void hades_log(hades_t* hades, const char* fmt, ...)
     }
 
     va_list args;
-
-    /* Initialise the va_list variable with the ... after fmt */
-
     va_start(args, fmt);
-
-    /* Forward the '...' to vprintf */
     hades->logger.log_message(hades->logger.logger, fmt, args);
-
-    /* Clean up the va_list */
     va_end(args);
 }
