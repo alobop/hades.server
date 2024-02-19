@@ -14,7 +14,7 @@ add_library(extern.lib.nanopb STATIC
     ${EXTERNS_NANOPB_SOURCE_DIR}/pb_encode.c
 )
 
-target_include_directories(extern.nanopb.lib 
+target_include_directories(extern.lib.nanopb
     PUBLIC
         ${EXTERNS_NANOPB_SOURCE_DIR}/
 )
