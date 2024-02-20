@@ -74,14 +74,14 @@ typedef struct hades_cmd_req_rpc_t
     hades_protocol_request_t header;
     hades_uuid_t target;
     uint32_t size;
-    uint8_t payload[0];
+    uint8_t payload[];
 } hades_cmd_req_rpc_t;
 
 typedef struct hades_cmd_resp_rpc_t
 {
     hades_protocol_response_t header;
     uint32_t size;
-    uint8_t payload[0];
+    uint8_t payload[];
 } hades_cmd_resp_rpc_t;
 
 #pragma pack(pop)

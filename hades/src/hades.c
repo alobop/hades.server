@@ -38,7 +38,7 @@ hades_status_t hades_init(hades_t* hades, hades_config_t* config)
         return HADES_E_INSUFFICIENT_MEMORY;
     }
 
-    *hades = (hades_t){};
+    *hades = (hades_t){0};
 
     hades->mutex = config->mutex;
     hades->transport = config->transport;
