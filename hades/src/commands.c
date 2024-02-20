@@ -24,10 +24,7 @@ static bool hades_id_equal(const hades_uuid_t* right, const hades_uuid_t* left);
 
 // --------------- Functions ---------------- //
 
-void hades_cmd_get_version(
-    hades_t* hades,
-    hades_request_t* command
-)
+void hades_cmd_get_version(hades_t* hades, hades_request_t* command)
 {
     assert(NULL != hades);
     assert(NULL != command);
@@ -55,10 +52,7 @@ void hades_cmd_get_version(
     hades_request_send(hades, command, HADES_SUCCESS, sizeof(hades_cmd_resp_get_version_t));
 }
 
-void hades_cmd_negotiate_size(
-    hades_t* hades,
-    hades_request_t* command
-)
+void hades_cmd_negotiate_size(hades_t* hades, hades_request_t* command)
 {
     assert(NULL != hades);
     assert(NULL != command);
@@ -80,15 +74,13 @@ void hades_cmd_negotiate_size(
     const hades_cmd_req_negotiate_size_t* request = (const hades_cmd_req_negotiate_size_t*)command->associated_request;
     hades_cmd_resp_negotiate_size_t* response = (hades_cmd_resp_negotiate_size_t*)command->associated_response;
 
-    response->negotiated_size = request->proposed_size > hades->command_size ? hades->command_size : request->proposed_size;
+    response->negotiated_size =
+        request->proposed_size > hades->command_size ? hades->command_size : request->proposed_size;
 
     hades_request_send(hades, command, HADES_SUCCESS, sizeof(hades_cmd_resp_negotiate_size_t));
 }
 
-void hades_cmd_rpc(
-    hades_t* hades,
-    hades_request_t* command
-)
+void hades_cmd_rpc(hades_t* hades, hades_request_t* command)
 {
     assert(NULL != hades);
     assert(NULL != command);
@@ -97,7 +89,7 @@ void hades_cmd_rpc(
     assert(NULL != hades->mutex.lock);
     assert(NULL != hades->mutex.unlock);
 
-    if (sizeof(hades_cmd_req_rpc_t) > command->request_size )
+    if (sizeof(hades_cmd_req_rpc_t) > command->request_size)
     {
         hades_request_send(hades, command, HADES_E_INVALID_ARG, 0);
         return;
@@ -120,7 +112,7 @@ void hades_cmd_rpc(
 
     hades->mutex.lock(hades->mutex.mutex);
 
-    hades_service_entry_t **current = &hades->services;
+    hades_service_entry_t** current = &hades->services;
     hades_rpc_descriptor_t* const* current_rpc = NULL;
 
     while (NULL != *current)
@@ -164,7 +156,7 @@ static bool hades_id_equal(const hades_uuid_t* right, const hades_uuid_t* left)
     {
         return false;
     }
-    for (size_t i = 0; i < sizeof(right->data)/sizeof(right->data[0]); i++)
+    for (size_t i = 0; i < sizeof(right->data) / sizeof(right->data[0]); i++)
     {
         if (right->data[i] != left->data[i])
         {

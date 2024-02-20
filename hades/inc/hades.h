@@ -13,13 +13,13 @@
 
 // ---------------- Typedefs ---------------- //
 
-typedef enum 
+typedef enum
 {
     HADES_SUCCESS,
     HADES_E_INVALID_ARG = -1,
     HADES_E_NOT_FOUND = -2,
     HADES_E_INSUFFICIENT_MEMORY = -3,
-    HADES_E_INVALID_COMMAND = - 4,
+    HADES_E_INVALID_COMMAND = -4,
     HADES_E_UNEXPECTED = -5,
     HADES_E_FAIL = -6
 } hades_status_t;
@@ -66,8 +66,14 @@ typedef void (*hades_transport_completion_t)(uint32_t status, size_t bytes_trans
 typedef struct hades_transport_t
 {
     void* transport;
-    void (*read_message)(void* transport, void* buffer, size_t max_bytes, hades_transport_completion_t cb, void* context);
-    void (*write_message)(void* transport, void* buffer, size_t byte_count, hades_transport_completion_t cb, void* context);
+    void (
+        *read_message)(void* transport, void* buffer, size_t max_bytes, hades_transport_completion_t cb, void* context);
+    void (*write_message)(
+        void* transport,
+        void* buffer,
+        size_t byte_count,
+        hades_transport_completion_t cb,
+        void* context);
 } hades_transport_t;
 
 typedef struct hades_logger_t

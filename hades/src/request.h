@@ -23,8 +23,8 @@ typedef struct hades_rpc_t
     size_t request_size;
     hades_protocol_response_t* associated_response;
     size_t response_size;
-    
-    union 
+
+    union
     {
         struct
         {
@@ -35,13 +35,14 @@ typedef struct hades_rpc_t
 
 typedef hades_rpc_t hades_request_t;
 
-typedef void (*hades_command_handler_t)(
-    hades_t* hades,
-    hades_request_t* handle
-);
+typedef void (*hades_command_handler_t)(hades_t* hades, hades_request_t* handle);
 
 // --------------- Prototypes --------------- //
 
 void hades_request_receive(hades_t* hades, hades_request_t* command);
 
-void hades_request_send(hades_t* hades, hades_request_t* command, hades_status_t completion_status, size_t response_size);
+void hades_request_send(
+    hades_t* hades,
+    hades_request_t* command,
+    hades_status_t completion_status,
+    size_t response_size);

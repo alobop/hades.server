@@ -19,7 +19,7 @@
 
 // ---------------- Typedefs ---------------- //
 
-enum 
+enum
 {
     HADES_COMMAND_GET_VERSION,
     HADES_COMMAND_NEGOTIATE_PAYLOAD_SIZE,
@@ -33,14 +33,14 @@ enum
 typedef struct hades_protocol_request_t
 {
     uint16_t request : 1;
-    uint16_t id: 15;
+    uint16_t id : 15;
     uint16_t command;
 } hades_protocol_request_t;
 
 typedef struct hades_protocol_response_t
 {
     uint16_t request : 1;
-    uint16_t id: 15;
+    uint16_t id : 15;
     uint16_t status;
 } hades_protocol_response_t;
 
@@ -52,9 +52,9 @@ typedef struct hades_cmd_req_get_version_t
 typedef struct hades_cmd_resp_get_version_t
 {
     hades_protocol_response_t header;
-    uint32_t major:10;
-    uint32_t minor:11;
-    uint32_t revision:11;
+    uint32_t major : 10;
+    uint32_t minor : 11;
+    uint32_t revision : 11;
 } hades_cmd_resp_get_version_t;
 
 typedef struct hades_cmd_req_negotiate_size_t
